@@ -1,7 +1,7 @@
 import React from 'react';
+import ChatSection from './ChatSection';
 import GameSection from './GameSection';
 import LeaderboardSection from './LeaderboardSection';
-import ChatSection from './ChatSection';
 
 const Home = () => {
   return (

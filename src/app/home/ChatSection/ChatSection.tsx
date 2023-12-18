@@ -45,11 +45,7 @@ const ChatSection = () => {
     <div className="flex h-full w-full flex-col">
       <ChatContainer>
         {chats.map((chat, i) => (
-          <ChatItem
-            key={i}
-            username={chat.username}
-            text={chat.text}
-           />
+          <ChatItem key={i} username={chat.username} text={chat.text} />
         ))}
       </ChatContainer>
       {/* <div className="h-32 bg-blue-200 px-4 flex flex-col justify-evenly"> */}
