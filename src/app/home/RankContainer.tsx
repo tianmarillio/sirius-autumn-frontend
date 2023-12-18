@@ -5,7 +5,7 @@ interface RankContainerProps {
 }
 
 const RankContainer: FC<RankContainerProps> = ({ children }) => {
-  return <ol className="h-[calc(100%-5rem)] overflow-scroll">{children}</ol>;
+  return <ol className="h-full overflow-scroll">{children}</ol>;
 };
 
 export default RankContainer;

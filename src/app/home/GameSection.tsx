@@ -11,7 +11,7 @@ const GameSection = () => {
         architecto eaque maiores nostrum totam voluptatem placeat repellat.
         Adipisci obcaecati quibusdam enim explicabo quis, facilis sint quaerat,
         repellendus voluptatem officiis minus."
-       />
+      />
       <AnswerContainer>
         <AnswerBox text="A. Lorem !" />
         <AnswerBox text="B. Lorem ipsum adipisicing elit. Dolorem, magni!" />

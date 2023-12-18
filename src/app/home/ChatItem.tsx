@@ -7,7 +7,7 @@ interface ChatItemProps {
 
 const ChatItem: FC<ChatItemProps> = ({ username, text }) => {
   return (
-    <p className="my-1 text-white">
+    <p className="my-1 w-full text-white">
       <span className="font-bold text-accent">{username}:</span> {text}
     </p>
   );
