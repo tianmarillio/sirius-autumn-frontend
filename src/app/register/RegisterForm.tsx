@@ -4,6 +4,10 @@ import { Formik, Form } from 'formik';
 import * as yup from 'yup';
 import FieldText from '@/components/Formik/FieldText';
 import FieldPassword from '@/components/Formik/FieldPassword';
+import { useDispatch } from 'react-redux';
+import { register } from '@/store/authSlice';
+import { AppDispatch } from '@/store/store';
+import { useRouter } from 'next/navigation';
 
 interface FormValues {
   username: string;
@@ -16,6 +20,9 @@ const validationSchema: yup.ObjectSchema<FormValues> = yup.object({
 });
 
 const RegisterForm = () => {
+  const dispatch = useDispatch<AppDispatch>();
+  const router = useRouter();
+
   const [showPassword, setShowPassword] = useState(false);
 
   const initialValues: FormValues = {
@@ -31,14 +38,20 @@ const RegisterForm = () => {
     <Formik
       initialValues={initialValues}
       validationSchema={validationSchema}
-      onSubmit={(values, { setSubmitting }) => {
-        console.log(values);
-        setSubmitting(false);
-        // setTimeout(() => {
-        //   alert(JSON.stringify(values, null, 2));
+      onSubmit={async (values) => {
+        const registerResult = await dispatch(
+          register({
+            username: values.username,
+            password: values.password,
+          }),
+        );
 
-        //   setSubmitting(false);
-        // }, 400);
+        if (!register.fulfilled.match(registerResult)) {
+          // TODO: throw error
+          return;
+        }
+
+        router.push('/login');
       }}
     >
       {({ isSubmitting }) => (

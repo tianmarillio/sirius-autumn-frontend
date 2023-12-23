@@ -1,3 +1,4 @@
+'use client';
 import React from 'react';
 import AnswerBox from './AnswerBox';
 import AnswerContainer from './AnswerContainer';
@@ -5,7 +6,7 @@ import QuestionBox from './QuestionBox';
 
 const GameSection = () => {
   return (
-    <div className="flex h-full w-full flex-col items-center pt-16">
+    <section className="flex h-full flex-1 flex-col items-center overflow-scroll bg-slate-300 pt-16">
       <QuestionBox
         text=" Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet,
         architecto eaque maiores nostrum totam voluptatem placeat repellat.
@@ -26,7 +27,7 @@ const GameSection = () => {
           magni!"
         />
       </AnswerContainer>
-    </div>
+    </section>
   );
 };
 

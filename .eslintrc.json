@@ -1,4 +1,5 @@
 {
+  "parser": "@typescript-eslint/parser",
   "extends": [
     "next/core-web-vitals",
     "eslint:recommended",
@@ -6,6 +7,7 @@
     "plugin:react-hooks/recommended",
     "plugin:tailwindcss/recommended"
   ],
+  "plugins": ["@typescript-eslint"],
   "rules": {
     "react/self-closing-comp": [
       "error",
@@ -13,6 +15,8 @@
         "component": true,
         "html": true
       }
-    ]
+    ],
+    "no-unused-vars": "off",
+    "@typescript-eslint/no-unused-vars": ["error"]
   }
 }

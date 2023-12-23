@@ -1,3 +1,4 @@
+'use client';
 import React, { FC } from 'react';
 import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -9,17 +10,22 @@ interface FieldPasswordProps {
   placeholder?: string;
   showPassword: boolean;
   handleTogglePassword: () => void;
+  className?: string;
 }
+
+// TODO: change icons
+// MOVE COMPONENT FILE LOCATION
 
 const FieldPassword: FC<FieldPasswordProps> = ({
   name,
   label,
   placeholder = '',
+  className = 'w-full',
   showPassword,
   handleTogglePassword,
 }) => {
   return (
-    <>
+    <div className={className}>
       <label htmlFor={name}>{label}</label>
       <div className="relative">
         <Field
@@ -36,7 +42,7 @@ const FieldPassword: FC<FieldPasswordProps> = ({
         />
       </div>
       <ErrorMessage name="password" component="div" />
-    </>
+    </div>
   );
 };
 

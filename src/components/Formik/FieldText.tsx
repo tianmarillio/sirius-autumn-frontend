@@ -5,11 +5,17 @@ interface FieldTextProps {
   name: string;
   label: string;
   placeholder?: string;
+  className?: string;
 }
 
-const FieldText: FC<FieldTextProps> = ({ name, label, placeholder = '' }) => {
+const FieldText: FC<FieldTextProps> = ({
+  name,
+  label,
+  placeholder = '',
+  className = 'w-full',
+}) => {
   return (
-    <>
+    <div className={className}>
       <label htmlFor={name}>{label}</label>
       <div className="relative">
         <Field
@@ -20,7 +26,7 @@ const FieldText: FC<FieldTextProps> = ({ name, label, placeholder = '' }) => {
         />
       </div>
       <ErrorMessage name="username" component="div" className="bg-red-400" />
-    </>
+    </div>
   );
 };
 

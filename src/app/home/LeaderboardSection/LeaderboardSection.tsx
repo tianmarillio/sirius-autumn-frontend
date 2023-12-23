@@ -1,6 +1,11 @@
+'use client';
 import React from 'react';
 import RankContainer from './RankContainer';
 import RankItem from './RankItem';
+import { useRouter } from 'next/navigation';
+import { useDispatch } from 'react-redux';
+import { resetToken, resetUser } from '@/store/authSlice';
+import { AUTH_TOKEN } from '@/constants';
 
 interface User {
   username: string;
@@ -12,10 +17,24 @@ for (let i = 0; i < 25; i++) {
 }
 
 const LeaderboardSection = () => {
+  const dispatch = useDispatch();
+  const router = useRouter();
+
+  const handleLogout = () => {
+    dispatch(resetToken());
+    dispatch(resetUser());
+
+    localStorage.removeItem(AUTH_TOKEN);
+
+    router.push('/login');
+  };
+
   return (
-    <div className="h-screen">
+    <section className="hidden h-full w-[18rem] bg-blue-200 xl:block">
       <div className="grid h-10 place-content-center bg-red-300">
-        <button className="rounded bg-accent px-4 py-1">LOGOUT</button>
+        <button className="rounded bg-accent px-4 py-1" onClick={handleLogout}>
+          LOGOUT
+        </button>
       </div>
 
       <h2 className="grid h-20 place-content-center px-4 py-2 text-center text-2xl font-bold tracking-widest">
@@ -29,7 +48,7 @@ const LeaderboardSection = () => {
           ))}
         </RankContainer>
       </div>
-    </div>
+    </section>
   );
 };
 
